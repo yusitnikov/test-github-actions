@@ -34,3 +34,6 @@ jobs:
           git add c.json
           git commit -m "ci: auto-generated code" || echo No changes detected!
           git push
+
+      - name: Trigger external workflow (draft)
+        run: echo Ref = ${{github.ref_name}}
