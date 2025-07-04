@@ -36,4 +36,5 @@ jobs:
           git push
 
       - name: Trigger external workflow (draft)
-        run: echo Ref = ${{github.ref_name}}
+        if: github.ref_name == 'main'
+        run: echo This is running!
