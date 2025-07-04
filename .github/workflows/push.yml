@@ -35,6 +35,10 @@ jobs:
           git commit -m "ci: auto-generated code" || echo No changes detected!
           git push
 
-      - name: Trigger external workflow (draft)
+      - name: Trigger external workflow
         if: github.ref_name == 'main'
-        run: echo This is running!
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          event-type: chameleon-event
+          repository: 'yusitnikov/test-github-actions2'
+          token: '${{ secrets.PAT }}'
